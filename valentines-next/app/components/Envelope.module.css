@@ -1,0 +1,97 @@
+.container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: transparent;
+  margin: 50px auto;
+  cursor: pointer;
+  perspective: 1000px; /* For 3D rotation of flap */
+}
+
+/* The Envelope Body (Pocket) */
+.pocketBody {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff6b6b;
+  z-index: 10;
+  /* Clip path to look like an envelope pocket */
+  clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);
+  background: linear-gradient(135deg, #ff8e8e, #ff6b6b);
+  border-radius: 0 0 5px 5px;
+}
+
+/* The Flap */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff5252;
+  clip-path: polygon(0 0, 50% 45%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.6s ease-in-out;
+  z-index: 11; /* Above pocket */
+  border-radius: 5px 5px 0 0;
+}
+
+/* The Letter */
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  transition: bottom 0.6s ease-in-out 0.4s; /* Delay to wait for flap */
+  z-index: 5; /* Inside pocket initially */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace; /* Typewriter look */
+}
+
+/* Open State */
+.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Moves behind when open */
+}
+
+.open .letter {
+  bottom: 150px; /* Slides up */
+  z-index: 12; /* Comes out on top */
+}
+
+/* Heart Sticker on Flap? Optional */
+.heart {
+    font-size: 2rem;
+    color: white;
+    margin-top: -10px; /* Adjust pos */
+}
+
+/* Button in Letter */
+.kosmiBtn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.kosmiBtn:hover {
+    background-color: #e05e5e;
+}

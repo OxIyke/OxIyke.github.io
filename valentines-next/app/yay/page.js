@@ -1,3 +1,5 @@
+import Envelope from '../components/Envelope';
+
 export default function Yay() {
     return (
         <div className="container">
@@ -7,8 +9,10 @@ export default function Yay() {
             <h1 id="message">
                 Thanks for being my Valentine! ⸜(｡˃ ᵕ ˂ )⸝♡
             </h1>
-            
-            
+
+            <div style={{ marginTop: '50px' }}>
+                <Envelope />
+            </div>
         </div>
     );
 }
