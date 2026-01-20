@@ -1,33 +1,35 @@
 "use client";
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './Envelope.module.css';
 
 export default function Envelope() {
-  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const [isPartiallyOpen, setIsPartiallyOpen] = useState(false);
 
-  const toggleOpen = () => {
-    if (!isOpen) {
-      setIsOpen(true);
+  const handleEnvelopeClick = () => {
+    if (!isPartiallyOpen) {
+      setIsPartiallyOpen(true);
     }
   };
 
+  const handlePaperClick = (e) => {
+    e.stopPropagation(); // Prevent envelope click
+    router.push('/letter');
+  };
+
   return (
-    <div className={`${styles.container} ${isOpen ? styles.open : ''}`} onClick={toggleOpen}>
+    <div className={`${styles.container} ${isPartiallyOpen ? styles.open : ''}`} onClick={handleEnvelopeClick}>
 
-      <div className={styles.letter}>
-        <div style={{ marginBottom: '10px', fontWeight: 'bold' }}>To My Valentine</div>
-        <p style={{ margin: '5px 0', fontSize: '0.9rem' }}>You make my heart smile.</p>
-        <p style={{ margin: '5px 0', fontSize: '0.9rem' }}>Love you!</p>
-
-        <a href="#" className={styles.kosmiBtn} target="_blank" rel="noopener noreferrer">
-          Let's go on a date?
-        </a>
+      <div className={styles.letter} onClick={handlePaperClick}>
+        <div className={styles.letterPreview}>
+          <div className={styles.iLoveYou}>i love you</div>
+          <div className={styles.clickMe}>click me</div>
+        </div>
       </div>
 
       <div className={styles.pocketBody}></div>
-      <div className={styles.flap}>
-        {/* Optional heart sticker could go here if properly positioned, but CSS circles/pseudo elements are safer for simple geometry */}
-      </div>
+      <div className={styles.flap}></div>
     </div>
   );
 }
