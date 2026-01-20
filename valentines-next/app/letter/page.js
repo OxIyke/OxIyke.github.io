@@ -4,10 +4,11 @@ export default function LetterPage() {
   return (
     <div className="letter-page">
       <div className="letter-content">
+        <h1 className="title">A Letter to the girl i love the most</h1>
         <p className="date"><strong>on January 9th at 8:25 pm.</strong></p>
         <p>a conversation turned into truth.</p>
         <p>we stopped pretending.</p>
-        <p>we chose each other.</p>
+        <p>and we chose each other.</p>
 
         <div className="space"></div>
 
@@ -24,7 +25,7 @@ export default function LetterPage() {
 
         <p className="signature"><strong>Iyke</strong></p>
 
-        <a href="#" className="date-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://kosmi.to/@iyke" className="date-link" target="_blank" rel="noopener noreferrer">
           Let's go on a date?
         </a>
       </div>
@@ -56,6 +57,19 @@ export default function LetterPage() {
         .letter-content p {
           margin: 0 0 28px 0;
           text-align: left;
+        }
+
+        .title {
+          font-family: 'Steph', cursive;
+          font-size: 2rem;
+          font-weight: 800; /* Extra bold */
+          text-align: center;
+          margin-bottom: 40px;
+          color: #2d2d2d;
+          line-height: 1.3;
+          text-transform: uppercase; /* Optional, but "boldly written" often implies caps or strong presence. Let's keep it normal case but big and bold as user wrote sentence case. */
+          text-transform: none; 
+          letter-spacing: 0.5px;
         }
 
         .date {

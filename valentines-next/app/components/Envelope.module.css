@@ -44,19 +44,24 @@
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
-  height: 80px;
-  /* Small partial reveal */
+  height: 120px;
+  /* Increased height for better text fit */
   background-color: #fffbf0;
-  /* Clean paper color, no lines */
   border-radius: 4px 4px 0 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: bottom 0.5s ease-out;
   z-index: 5;
+  /* Keep behind pocket (10) */
   cursor: pointer;
 
   display: flex;
+  flex-direction: column;
+  /* Stack text vertically */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  /* Align to top to be visible */
+  padding-top: 15px;
+  /* Spacing from top edge */
 }
 
 .letterPreview {
@@ -68,13 +73,19 @@
   font-size: 1.8rem;
   color: #4a4a4a;
   margin-bottom: 5px;
+  font-weight: bold;
+  /* Bolder text */
 }
 
 .clickMe {
   font-family: 'Steph', cursive;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  /* Slightly larger */
   color: #999;
-  opacity: 0.6;
+  font-weight: bold;
+  /* Bolder text */
+  opacity: 0.8;
+  /* More visible */
 }
 
 /* Open State */
@@ -84,13 +95,14 @@
 }
 
 .open .letter {
-  bottom: 40px;
-  /* Slides up slightly */
-  z-index: 12;
+  bottom: 80px;
+  /* Slides up enough to be seen above pocket */
+  /* z-index remains 5 to stay inside/behind pocket */
   transition-delay: 0.3s;
 }
 
 .open .letter:hover {
-  transform: translateX(-50%) scale(1.02);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transform: translateX(-50%) translateY(-5px);
+  /* Gentle hover lift */
+  /* Remove scale to keep inside look clean */
 }

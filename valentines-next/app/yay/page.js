@@ -10,7 +10,7 @@ export default function Yay() {
                 Thanks for being my Valentine! ⸜(｡˃ ᵕ ˂ )⸝♡
             </h1>
 
-            <div style={{ marginTop: '50px' }}>
+            <div>
                 <Envelope />
             </div>
         </div>

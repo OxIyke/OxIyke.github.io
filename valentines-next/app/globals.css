@@ -7,19 +7,23 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll only */
-  overflow-y: auto;   /* Allow vertical scroll */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll only */
+  overflow-y: auto;
+  /* Allow vertical scroll */
 }
 
 body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: center; Removed to prevent cut-off */
+  align-items: center;
   text-align: center;
   margin: 0;
-  padding: 75px 0;
+  padding: 20px 0;
   background: linear-gradient(#ffffff, #f9d6d6);
   font-family: "Steph", sans-serif;
+  min-height: 100vh;
 }
 
 @font-face {
@@ -36,18 +40,26 @@ body {
 
 .container {
   max-width: 100%;
-  margin: 20px auto 0 auto;
+  margin: auto;
+  /* This handles vertical and horizontal centering safely */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #togepi-gif {
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  /* Reduced from 500 */
+  height: 320px;
+  /* Reduced from 400 */
   object-fit: cover;
 }
 
 h1 {
   font-size: 3rem;
-  margin: 50px auto;
+  margin: 30px auto;
+  /* Reduced from 50px */
 }
 
 .btn-container {
